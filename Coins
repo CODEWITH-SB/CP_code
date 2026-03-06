@@ -1,0 +1,84 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+#define vi vector<int>
+#define pb push_back
+#define pob pop_back
+#define ll long long int
+#define all(x) x.begin(), x.end()
+#define yes cout << "YES\n"
+#define no cout << "NO\n"
+#define test cout << "THIS POSITION IS OK" << endl
+#define sp cout << " "
+#define eps 1e-10
+#define sz(x) x.size()
+#define gcd __gcd
+
+void solve()
+{
+    string s1, s2, s3;
+    int ma[3] = {0};
+    int mi[3] = {0}, f=-1, s=-1;
+
+    cin >> s1 >> s2 >> s3;
+
+    if (s1[1] == '>')
+    {
+        ma[s1[0] - 'A']++;
+        mi[s1[2] - 'A']++;
+    }
+    else
+    {
+        ma[s1[2] - 'A']++;
+        mi[s1[0] - 'A']++;
+    }
+
+    if (s2[1] == '>')
+    {
+        ma[s2[0] - 'A']++;
+        mi[s2[2] - 'A']++;
+    }
+    else
+    {
+        ma[s2[2] - 'A']++;
+        mi[s2[0] - 'A']++;
+    }
+
+    if (s3[1] == '>')
+    {
+        ma[s3[0] - 'A']++;
+        mi[s3[2] - 'A']++;
+    }
+    else
+    {
+        ma[s3[2] - 'A']++;
+        mi[s3[0] - 'A']++;
+    }
+
+    for (int i = 0; i < 3; i++)
+    {
+        if (ma[i] == 2) f = i;
+        if (mi[i] == 2) s = i;
+    }
+
+    if (f == -1 || s == -1)
+    {
+        cout << "Impossible";
+        return;
+    }
+
+    char a, b, c;
+    a = f + 'A';
+    c = s + 'A';
+    b = 198 - a - c;
+
+    cout << c << b << a;
+}
+
+int main()
+{
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+
+    solve();
+}
