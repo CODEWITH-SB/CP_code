@@ -1,0 +1,64 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+#define DEC2BIN(x, bits) (bitset<bits>(x).to_string())
+#define vi vector<int>
+#define pb push_back
+#define pob pop_back
+#define ll long long int
+#define all(x) x.begin(), x.end()
+#define yes cout << "YES\n"
+#define no cout << "NO\n"
+#define test cout << "THIS POSITION IS OK" << endl
+#define sp cout << " "
+#define eps 1e-10
+#define sz(x) x.size()
+#define gcd __gcd
+#define vec2d(ve, r, c) vector<vector<int>> ve(r, vector<int>(c, 0))
+#define dsort(x) sort(x.begin(), x.end(), greater<int>())
+#define maxx INT_MAX
+#define inttos(x) std::to_string(x)
+#define stoint(s) std::stoi(s)
+
+bool cmd(pair<double, int> a, pair<double, int> b)
+{
+    if (a.first == b.first)
+        return a.second < b.second;
+    return a.first > b.first;
+}
+
+void solve()
+{
+    int n, t1, t2, k;
+    cin >> n >> t1 >> t2 >> k;
+    vector<pair<double, int>> v;
+    for (auto i = 0; i < n; i++)
+    {
+        int x, y;
+        cin >> x >> y;
+        double b1 = (min(x, y) * t1) - (min(x, y) * (double)t1 * ((double)k / 100.0)) + (max(x, y) * t2);
+        double b = (max(x, y) * t1) - (max(x, y) * (double)t1 * ((double)k / 100.0)) + (min(x, y) * t2);
+        b = max(b, b1);
+        v.pb({b, i + 1});
+    }
+    sort(all(v), cmd);
+    for (auto i = 0; i < n; i++)
+    {
+        cout << v[i].second << " " << fixed << setprecision(2) << v[i].first << endl;
+    }
+}
+
+int main()
+{
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+
+#ifndef ONLINE_JUDGE
+    freopen("input.txt", "r", stdin);
+    freopen("output.txt", "w", stdout);
+#endif
+
+    solve();
+
+    return 0;
+}
