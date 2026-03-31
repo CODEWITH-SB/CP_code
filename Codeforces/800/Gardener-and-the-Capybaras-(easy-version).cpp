@@ -29,6 +29,7 @@ void solve()
     for (auto i = 1; i < sz(s) - 1; i++)
     {
         if (s[i] == 'a')
+            
         {
             in = i;
             break;
