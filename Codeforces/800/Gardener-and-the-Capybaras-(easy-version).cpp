@@ -38,7 +38,7 @@ void solve()
 
     if (in)
     {
-        cout << s.substr(0, in) << " " << 'a' << " " << s.substr(in + 1);
+         cout << s.substr(0, in) << " " << 'a' << " " << s.substr(in + 1);
     }
     else
     {
