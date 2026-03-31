@@ -1,4 +1,5 @@
 #include <bits/stdc++.h>
+#include<iostream>
 using namespace std;
 
 #define DEC2BIN(x, bits) (bitset<bits>(x).to_string())
