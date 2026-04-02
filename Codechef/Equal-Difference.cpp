@@ -19,37 +19,53 @@ using namespace std;
 #define maxx INT_MAX
 #define inttos(x) std::to_string(x)
 #define stoint(s) std::stoi(s)
-
+ll fac(int a)
+{
+    if (a == 0)
+        return 1;
+    return a * fac(a - 1);
+}
 void solve()
 {
-    string s;
-    cin >> s;
 
-    int in = 0;
-    for (auto i = 1; i < sz(s) - 1; i++)
+    int n;
+    cin >> n;
+    vi v(n);
+    for (auto i = 0; i < n; i++)
     {
-        if (s[i] == 'a')
+        cin >> v[i];
+    }
+
+    map<int, int> mp;
+    for (auto i = 0; i < n; i++)
+    {
+        if ((i + 1) - v[i] > -1)
+            mp[i - v[i]]++;
+    }
+
+    ll ans = 0;
+    for (auto [k, va] : mp)
+    {
+
+        va--;
+        while (va)
         {
-            in = i;
-            break;
+            ans += fac(va);
+            va--;
         }
     }
 
-    if (in)
-    {
-        cout << s.substr(0, in) << " " << 'a' << " " << s.substr(in + 1);
-    }
-    else
-    {
-        cout << s[0] << " " << s.substr(1, sz(s) - 2) << " " << s[sz(s) - 1];
-    }
+    cout << ans;
 };
-
 int main()
 {
-    
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
+
+#ifndef ONLINE_JUDGE
+    freopen("input.txt", "r", stdin);
+    freopen("output.txt", "w", stdout);
+#endif
 
     int t;
     cin >> t;
