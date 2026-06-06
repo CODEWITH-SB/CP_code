@@ -1,0 +1,72 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+#define DEC2BIN(x, bits) (bitset<bits>(x).to_string())
+#define vi vector<int>
+#define pb push_back
+#define pob pop_back
+#define ll long long int
+#define all(x) x.begin(), x.end()
+#define yes cout << "YES\n"
+#define no cout << "NO\n"
+#define test cout << "THIS POSITION IS OK" << endl
+#define sp cout << " "
+#define eps 1e-10
+#define sz(x) x.size()
+#define gcd __gcd
+#define vec2d(ve, r, c) vector<vector<int>> ve(r, vector<int>(c, 0))
+#define dsort(x) sort(x.begin(), x.end(), greater<int>())
+#define maxx INT_MAX
+#define inttos(x) std::to_string(x)
+#define stoint(s) std::stoi(s)
+
+void solve()
+{
+    int n;
+    cin >> n;
+
+    string s;
+    cin >> s;
+
+    vector<int> mp(n + 1, 0);
+
+    ll ans = 0;
+
+    for (int i = 1; i <= n; i++)
+    {
+        for (int k = i; k <= n; k += i)
+        {
+            if (mp[k*i]==1)
+                break;
+
+            if (mp[k]==2)
+                continue;
+
+            mp[k] = 2;
+            ans += i;
+        }
+    }
+
+    cout << ans;
+}
+
+int main()
+{
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+
+#ifndef ONLINE_JUDGE
+    freopen("input.txt", "r", stdin);
+    freopen("output.txt", "w", stdout);
+#endif
+
+    int t;
+    cin >> t;
+    while (t--)
+    {
+        solve();
+        cout << "\n";
+    }
+
+    return 0;
+}

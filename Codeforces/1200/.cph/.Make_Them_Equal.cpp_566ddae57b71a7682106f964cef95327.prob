@@ -1,0 +1,1 @@
+{"name":"Local: Make_Them_Equal","url":"e:\\GITHUB\\CP_code\\Codeforces\\1200\\Make_Them_Equal.cpp","tests":[{"id":1780293382818,"input":"3\n4 a\naaaa\n4 a\nbaaa\n4 b\nbzyx\n","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"e:\\GITHUB\\CP_code\\Codeforces\\1200\\Make_Them_Equal.cpp","group":"local","local":true}
